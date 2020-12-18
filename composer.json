@@ -1,0 +1,20 @@
+{
+    "name": "lizus/wp-function",
+    "description": "wp function",
+    "type": "library",
+    "require": {
+        "php": ">=7.0",
+        "lizus/php-loaddir": "dev-master"
+    },
+    "license": "GPL-2.0-or-later",
+    "authors": [{
+        "name": "lizus",
+        "email": "lizus.com@gmail.com"
+    }],
+    "minimum-stability": "dev",
+    "autoload": {
+        "files": [
+            "src/load.php"
+        ]
+    }
+}
