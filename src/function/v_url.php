@@ -11,11 +11,14 @@ function v_url($url,$queries=null){
   $path=get_url_path($url);
   $q=get_url_queries($url);
   if (is_string($queries)) $queries=parse_url_query($queries);
-  if (is_array($queries)) $q=array_filter(array_merge($q,$queries));
+  if (is_array($queries)) $q=array_unique(array_merge($q,$queries));
   $retq=array();
   foreach ($q as $key => $value) {
     $item=$key.'=';
-    if (!empty($value)) $item.=$value;
+    /**
+     * 搜索页的s参数要保留，否则不会提交到搜索结果页去
+     */
+    if (!empty($value) || $key=='s') $item.=$value;
     $retq[]=$item;
   }
   if (!empty($retq)) {
