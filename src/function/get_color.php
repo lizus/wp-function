@@ -1,4 +1,5 @@
 <?php
+
 namespace LizusFunction;
 
 /**
@@ -11,24 +12,25 @@ namespace LizusFunction;
  * @param  int $y
  * @return string
  */
-function get_color($img,$x=5,$y=5){
-  $type='jpg';
-  if(preg_match('/\.(jpg|gif|png)/',$img,$m)){
-    $type=$m[1];
+function get_color($img, $x = 5, $y = 5)
+{
+  $type = 'jpg';
+  if (\preg_match('/\.(jpg|gif|png)/', $img, $m)) {
+    $type = $m[1];
   }
   switch ($type) {
     case 'gif':
-      $im = ImageCreateFromGif($img);
+      $im = \ImageCreateFromGif($img);
       break;
     case 'png':
-      $im = ImageCreateFromPng($img);
+      $im = \ImageCreateFromPng($img);
       break;
     default:
-      $im = ImageCreateFromJpeg($img);
+      $im = \ImageCreateFromJpeg($img);
       break;
   }
-  if(!$im) return '#000000';
-  $rgb = ImageColorAt($im, $x, $y);
-  $color='000000'.dechex($rgb);
-  return '#'.substr($color,-6);
+  if (!$im) return '#000000';
+  $rgb = \ImageColorAt($im, $x, $y);
+  $color = '000000' . \dechex($rgb);
+  return '#' . \substr($color, -6);
 }

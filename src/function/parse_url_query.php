@@ -1,4 +1,5 @@
 <?php
+
 namespace LizusFunction;
 
 /**
@@ -6,13 +7,14 @@ namespace LizusFunction;
  * @param  string $q [类似query字符串]
  * @return array    [query键值对数组，如果$q为空，则返回空数组]
  */
-function parse_url_query($q){
+function parse_url_query($q)
+{
   if (!is_string($q)) return [];
-  $q = explode('&',$q);
-  return array_reduce($q,function ($carry,$item){
-    $v=explode('=',$item);
-    return array_merge($carry,[
+  $q = explode('&', $q);
+  return \array_reduce($q, function ($carry, $item) {
+    $v = explode('=', $item);
+    return \array_merge($carry, [
       $v[0] => $v[1] ?? ''
     ]);
-  },[]);
+  }, []);
 }
