@@ -7,7 +7,7 @@ namespace LizusFunction;
  * 获取第一个字的拼音首字母
  * 
  * @param  mixed $str
- * @return void
+ * @return string
  */
 function get_first_letter($str)
 {
@@ -48,5 +48,5 @@ function get_first_letter($str)
   if ($asc >= -12556 && $asc <= -11848) return 'X';
   if ($asc >= -11847 && $asc <= -11056) return 'Y';
   if ($asc >= -11055 && $asc <= -10247) return 'Z';
-  return null;
+  return '';
 }
