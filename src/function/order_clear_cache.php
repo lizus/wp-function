@@ -15,5 +15,10 @@ function order_clear_cache()
      */
     if (!current_user_can('manage_categories')) return false;
 
+    /**
+     * 首页不清缓存
+     */
+    if (is_home()) return false;
+
     return (isset($_GET['clear_cache']) && $_GET['clear_cache'] == 'ok');
 }
